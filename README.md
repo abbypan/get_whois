@@ -7,10 +7,9 @@ extract domain whois to json
 
 # usage
 
-    perl get_whois.pl [domain]
+perl get_whois.pl [domain]
 
     $ perl get_whois.pl google.com
-
     {"is_exist":1,
     "creation":"1997-09-15",
     "expiration":"2020-09-13",
