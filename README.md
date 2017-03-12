@@ -11,7 +11,9 @@ extract domain whois to json
 
     $ perl get_whois.pl google.com
 
-    {"is_exist":1,"creation":"1997-09-15","expiration":"2020-09-13",
+    {"is_exist":1,
+    "creation":"1997-09-15",
+    "expiration":"2020-09-13",
     "email":"dns-admin@google.com",
     "status":"clientDeleteProhibited,clientTransferProhibited,clientUpdateProhibited,serverDeleteProhibited,serverTransferProhibited,serverUpdateProhibited",
     "registrar":"MarkMonitor, Inc.",
