@@ -12,7 +12,11 @@ $Net::Whois::Raw::OMIT_MSG   = 1;
 $Net::Whois::Raw::CHECK_FAIL = 1;
 $Net::Whois::Raw::TIMEOUT    = 10;
 
-my $info = get_whois_info( @ARGV );
+my ($dom) = @ARGV;
+$dom=~s/\.$//;
+$dom=lc($dom);
+
+my $info = get_whois_info( $dom );
 my $s    = encode_json( $info );
 print $s, "\n";
 
@@ -22,7 +26,7 @@ sub get_whois_info {
   my $whois_ref = get_whois( $dom, undef, 'QRY_ALL' );
   my @whois_info = reverse grep { $_ } map { trim_whois_info( $_->{text} ) } @$whois_ref;
 
-  my %inf;
+  my %inf = ( domain => $dom );
   for my $whois ( @whois_info ) {
     $inf{is_exist}   = is_exist_domain( $whois )       || 0;
     $inf{expiration} = parse_expiration_date( $whois ) || '';
