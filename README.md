@@ -11,6 +11,7 @@ perl get_whois.pl [domain]
 
     $ perl get_whois.pl google.com
     {"is_exist":1,
+    "domain":"google.com",
     "creation":"1997-09-15",
     "expiration":"2020-09-13",
     "email":"dns-admin@google.com",
